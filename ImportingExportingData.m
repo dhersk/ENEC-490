@@ -7,7 +7,7 @@
 NEW = zeros(12,30);
 for x = 1:30
     for y = 1:12
-        NEW(y,x) = NUM((y-1)*12+x,2);
+        NEW(y,x) = NUM((x-1)*12+y);
     end
 end
 
