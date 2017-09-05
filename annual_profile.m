@@ -1,27 +1,21 @@
-function [ n ] = annual_profile( vector )
+function [ n ] = annual_profile(data)
 %function that creates monthly gas prices to annual profile
 
-years = floor(length(vector)/12);
-m = zeros(12,years);
-n = zeros(12,9);
+num_data_points = length(data);
+years = floor(num_data_points/12);
+
+%create empty matrix 
+n = zeros(12,years);
+
 for i = 1:years
     for j = 1:12
-        m(j,i) = vector((i-1)*12+j,2);
+        n(j,i) = data((i-1)*12+j);
     end
 end
 
-for x = 12:20
-    for y = 1:12
-        n(y,x-11) = m(y,x);
-    end
-end
+%new_years = 1997:1:2016;
+%start = find(new_years==2008);
 
-% years = 1997:1:2016;
-% start = find(years==2008);
-
-%years = 1999:1:2016;
-%start = find(years==1999);
-
-%m = m(:,start:end);
+%n = m(:,start:end);
 
 end
